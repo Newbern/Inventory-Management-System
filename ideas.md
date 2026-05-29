@@ -1,5 +1,5 @@
-## The Begining at 5/28/26
-* Get MySql setup
-* start getting a site up
-* start looking at getting a item created
-* start getting sql together as well for setup & test it
+## Database put together 5/29/26
+* Create an item and get it connected to frontend
+* Test setup.sql
+* Get a user, product, and cart test done
+* Start looking at authentication???
