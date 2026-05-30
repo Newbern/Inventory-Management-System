@@ -1,4 +1,4 @@
-CREATE DATABASE inventory_management_system;
+CREATE DATABASE IF NOT EXISTS inventory_management_system;
 
 USE inventory_management_system;
 
