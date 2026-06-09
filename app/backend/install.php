@@ -64,12 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             # Saving Database Credentials in a Config File
             $config_content = "<?php
 
-            return [
-                'host' => " . var_export($host, true) .",
-                'user' => " . var_export($user, true) .",
-                'pass' => " . var_export($pass, true) .",
-                'db_name' => " . var_export($db_name, true) .",
-            ];";
+return [
+    'host' => " . var_export($host, true) .",
+    'user' => " . var_export($user, true) .",
+    'pass' => " . var_export($pass, true) .",
+    'db_name' => " . var_export($db_name, true) .",
+];";
 
             # Creating config file with database credentials
             file_put_contents(__DIR__ . "/config.php", $config_content);

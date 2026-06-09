@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="<?php echo $CSS; ?>">
 </head>
 <body>
+    <header style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; background-color: #f0f0f0;">
+        <nav>
+            <ul style="list-style: none; display: flex; gap: 15px; margin: 0; padding: 0;">
+                <li><a href="?page=home">Home</a></li>
+                <li><a href="?page=test">Test</a></li>
+                <li><a href="?page=signin">Sign In</a></li>
+                <li><a href="?page=404">404</a></li>
+                <li><a href="/app/backend/install.php">Install</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <?php include $HTML ?>
     <script src="<?php echo $JS; ?>"></script>
 </body>

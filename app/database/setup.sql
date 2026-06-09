@@ -24,8 +24,7 @@ CREATE TABLE products (
 CREATE TABLE sales (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
-    quantity_sold INT NOT NULL,
-    total_price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
