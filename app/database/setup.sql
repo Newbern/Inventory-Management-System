@@ -24,6 +24,7 @@ CREATE TABLE products (
 CREATE TABLE sales (
     id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
+    user_id INT NOT NULL,
     quantity INT NOT NULL,
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (product_id) REFERENCES products(id)

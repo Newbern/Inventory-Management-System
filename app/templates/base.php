@@ -13,8 +13,12 @@
                 <li><a href="?page=home">Home</a></li>
                 <li><a href="?page=test">Test</a></li>
                 <li><a href="?page=signin">Sign In</a></li>
+                <li><a href="?page=login">Login</a></li>
                 <li><a href="?page=404">404</a></li>
                 <li><a href="/app/backend/install.php">Install</a></li>
+                <form method="POST" style="display: inline;">
+                    <button type="submit" name="logout" style="background: none; border: none; color: blue; cursor: pointer; padding: 0;">Logout</button>
+                </form>
             </ul>
         </nav>
     </header>
@@ -23,3 +27,12 @@
     <script src="<?php echo $JS; ?>"></script>
 </body>
 </html>
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
+    session_start();
+    session_destroy();
+    header("Location: index?page=login");
+    exit();
+}
+
