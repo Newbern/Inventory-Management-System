@@ -22,6 +22,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
 
     if ($username && $email && $password) {
+        foreach (get_user($pdo) as $user) {
+            if ($user['username'] === $username) {
+                echo "<p>Username already exists. Please choose another.</p>";
+                return;
+            }
+            if ($user['email'] === $email) {
+                echo "<p>Email already registered. Please use another.</p>";
+                return;
+            }
+        }
         user_create($pdo, $username, $password, $email);
         echo "<p>User created successfully!</p>";
     } else {

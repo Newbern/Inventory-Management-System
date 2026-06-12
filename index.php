@@ -15,7 +15,7 @@ $page = $_GET['page'] ?? 'home';
 
 
 # Allowed Pages
-$allowed = ['home', 'test', '404', 'signin', 'login'];
+$allowed = ['home', 'test', '404', 'signin', 'login', 'admin'];
 
 # Validating Page
 if (!in_array($page, $allowed)) {

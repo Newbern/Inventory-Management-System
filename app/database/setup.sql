@@ -4,6 +4,7 @@ USE inventory_management_system;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE products (
     quantity INT NOT NULL,
     average_quantity_sold INT DEFAULT 0,
     url VARCHAR(255),
+    location VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
