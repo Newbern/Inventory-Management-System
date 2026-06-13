@@ -20,7 +20,7 @@
         
     <?php
     session_start();
-    require 'app/backend/auth.php';
+    require 'admin/auth/auth.php';
     echo "<h2>Welcome, User ID: " . $_SESSION['user_id'] . "</h2>";
 
     if ($_SERVER['REQUEST_METHOD'] === "POST") {

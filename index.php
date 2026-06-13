@@ -15,21 +15,19 @@ $page = $_GET['page'] ?? 'home';
 
 
 # Allowed Pages
-$allowed = ['home', 'test', '404', 'signin', 'login', 'admin'];
+$allowed = ['home', 'test', 'signin', 'login', 'admin'];
 
 # Validating Page
 if (!in_array($page, $allowed)) {
     $page = '404';
 };
 
-$url = "app/templates/$page";
-
-echo "Page: $page <br>";
-
+# URL for including HTML content
+$url = "public/pages/$page";
 
 # Including css
-$CSS = "app/styles/$page.css";
-$JS = "app/scripts/$page.js";
+$CSS = "public/assets/css/$page.css";
+$JS = "public/assets/js/$page.js";
 
 # Including Html Page Specific Content 
 if (file_exists("$url.php")) {
@@ -43,7 +41,7 @@ else {
 }
 
 # Including Database Queries
-include 'app/backend/db_queries.php';
+include 'app/database/db_queries.php';
 
 # Base Template
-include 'app/templates/base.php';
+include 'public/layouts/base.php';

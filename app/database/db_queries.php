@@ -27,7 +27,7 @@ function get_sales(PDO $obj) {
 }
 
 // Collecting Database Configuration
-$config = require "config.php";
+$config = require "app/config/config.php";
 
 // Establishing Database Connection
 $pdo = new PDO("mysql:host={$config['host']};dbname={$config['dbname']}", "{$config['user']}", "{$config['pass']}");
