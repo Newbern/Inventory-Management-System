@@ -1,6 +1,6 @@
 <?php
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index?page=login");
+    header("Location: ".ROOT."index?page=login");
     exit();
 }

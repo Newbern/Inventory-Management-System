@@ -1,47 +1,26 @@
 <?php 
 // Delete This in Production
-$request = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-
-// If the requested file exists (CSS, JS, images), serve it normally
-if ($request && file_exists($request)) {
-    return false;
-}
+$request = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 
+# Setting Root Directory
+define('ROOT', __DIR__ . '/');
 
+# Including Router
+require ROOT . 'router/router.php';
 
-# Getting Pages
-$page = $_GET['page'] ?? 'home';
+# Initializing Router
+$router = new Router();
 
+# Defining Routes
+# Grouping up and Routeing for Public
+$router->group('/', "public_controller" ,function($router){
+    $router->get("", "home");
+    $router->get("test", "test");
+    $router->get("404", "Error");
+    $router->get("login", "login");
+    $router->get("signin", "signin");
+});
 
-# Allowed Pages
-$allowed = ['home', 'test', 'signin', 'login', 'admin'];
-
-# Validating Page
-if (!in_array($page, $allowed)) {
-    $page = '404';
-};
-
-# URL for including HTML content
-$url = "public/pages/$page";
-
-# Including css
-$CSS = "public/assets/css/$page.css";
-$JS = "public/assets/js/$page.js";
-
-# Including Html Page Specific Content 
-if (file_exists("$url.php")) {
-    $HTML = "$url.php";
-}
-elseif (file_exists("$url.html")) {
-    $HTML = "$url.html";
-}
-else {
-    $HTML = 'app/templates/404.html';
-}
-
-# Including Database Queries
-include 'app/database/db_queries.php';
-
-# Base Template
-include 'public/layouts/base.php';
+# Executing Routes based off of current page
+$router->dispatch($request);

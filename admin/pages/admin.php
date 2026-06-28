@@ -8,5 +8,5 @@
 <!-- Admin Products Management with a getting low notification -->
 
 <!-- Admin Inventory Management -->
-
+<button onclick="window.location.href='?page=inventory_management'">Go to Inventory Management</button>
 <!-- Admin Page Settings -->
